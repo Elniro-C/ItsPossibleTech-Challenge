@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "mongoose-id-validator": "^0.6.0",
     "node-rest-client": "^3.1.1",
+    "reflect-metadata": "^0.2.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "uppercase": "^1.4.12"
   },
   "name": "application-task-backend",
@@ -10,11 +14,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd Application && npm start",
+    "dev": "ts-node Application/app.ts",
+    "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
 }
