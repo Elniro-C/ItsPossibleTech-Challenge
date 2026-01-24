@@ -3,7 +3,7 @@ import { Service, Inject } from 'typedi';
 import config from '../config';
 import { ITaskDTO } from '../dto/ITaskDTO';
 import ITaskService from '../services/IServices/ITaskService';
-import ITaskController from './IControllers/ITaskcontroller';
+import ITaskController from './IControllers/ITaskController';
 
 @Service()
 export default class TaskController implements ITaskController {

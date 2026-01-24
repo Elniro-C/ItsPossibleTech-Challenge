@@ -2,7 +2,8 @@ import { Router } from 'express';
 import { Container } from 'typedi';
 import { celebrate, Joi } from 'celebrate';
 import config from "../../config";
-import ITaskController from '../../controllers/IControllers/ITaskcontroller';
+
+import ITaskController from '../../controllers/IControllers/ITaskController';
 const route = Router();
 
 /**

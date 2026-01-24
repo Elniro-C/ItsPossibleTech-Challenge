@@ -1,5 +1,6 @@
+import config from '../config';
 import swaggerJsdoc from 'swagger-jsdoc';
-import config from '../../config';
+
 
 const options: swaggerJsdoc.Options = {
   definition: {
@@ -15,7 +16,7 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
       {
-        url: `http://localhost:${config.port}${config.api.prefix}`,
+        url: `http://localhost:${config}${config.api.prefix}`,
         description: 'Development server',
       },
     ],
@@ -54,8 +55,7 @@ const options: swaggerJsdoc.Options = {
     ],
   },
   apis: [
-    './src/api/routes/*.ts',
-    './build/api/routes/*.js',
+    './Application/api/routes/*.ts',
   ],
 };
 

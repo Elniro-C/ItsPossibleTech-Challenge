@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import routes from '../api';
-import config from '../../config';
-import swaggerUi from 'swagger-ui-express';
+import routes from '../api/routes';
+import config from '../config';
 import swaggerSpec from './swagger';
+import swaggerUi from 'swagger-ui-express';
 import { errors as celebrateErrors } from 'celebrate';
 
 export default ({ app }: { app: express.Application }) => {
@@ -51,13 +51,13 @@ export default ({ app }: { app: express.Application }) => {
 
   /// catch 404 and forward to error handler
   app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err['status'] = 404;
+    const err = new Error('Not Found') as any;
+    err.status = 404;
     next(err);
   });
 
   /// error handlers
-  app.use((err, req, res, next) => {
+  app.use((err: any, _req: express.Request, res: express.Response, next: express.NextFunction) => {
     /**
      * Handle 401 thrown by express-jwt library
      */
@@ -69,7 +69,7 @@ export default ({ app }: { app: express.Application }) => {
     }
     return next(err);
   });
-  app.use((err, req, res, next) => {
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
     res.status(err.status || 500);
     res.json({
       errors: {

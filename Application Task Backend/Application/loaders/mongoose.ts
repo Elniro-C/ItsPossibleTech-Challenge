@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Db } from 'mongodb';
-import config from '../../config';
+import config from '../config';
 import Logger from './logger';
 
 // Set strictQuery to false to prepare for Mongoose 7
