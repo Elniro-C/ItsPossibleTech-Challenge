@@ -1,5 +1,14 @@
 {
   "devDependencies": {
     "@types/express": "^5.0.6"
+  },
+  "dependencies": {
+    "@types/mongoose": "^5.11.96",
+    "@types/winston": "^2.4.4",
+    "celebrate": "^15.0.3",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.5",
+    "typedi": "^0.10.0",
+    "winston": "^3.19.0"
   }
 }

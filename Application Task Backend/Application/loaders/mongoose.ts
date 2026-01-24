@@ -28,5 +28,5 @@ async function _getDb() : Promise<Db>{
     serverSelectionTimeoutMS: config.databaseConnectionTimeoutMS,
   });
 
-  return connection.connection.db;
+  return connection.connection.db!;
 };
