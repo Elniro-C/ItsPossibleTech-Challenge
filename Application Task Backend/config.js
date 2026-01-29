@@ -12,7 +12,7 @@ export default {
   /**
    * Database configuration
    */
-  databaseURL:"mongodb://vsgate-s1.dei.isep.ipp.pt:10245",
+  databaseURL:"mongodb://mongoadmin:5d9ba8d38e4dbc7c5a1b35cf@vsgate-s1.dei.isep.ipp.pt:10245/ItsPossible?authSource=admin",
   databaseConnectionRetries: 5,
   databaseConnectionTimeoutMS: 100000,
 

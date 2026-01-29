@@ -39,7 +39,7 @@ export default ({ app }: { app: express.Application }) => {
   // Swagger UI
   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
     explorer: true,
-    customSiteTitle: 'Operation Execution Management API Documentation',
+    customSiteTitle: 'Task APi Documentation',
     customCss: '.swagger-ui .topbar { display: none }',
   }));
 
