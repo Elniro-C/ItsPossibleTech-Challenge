@@ -17,7 +17,7 @@ export class TaskMap extends Mapper<Task> {
     );
 
     if (createResult.isFailure) {
-      throw new Error(createResult.error.toString());
+      throw new Error((createResult.error !== undefined ? createResult.error.toString() : 'Unknown error'));
     }
 
     const result = createResult.getValue();

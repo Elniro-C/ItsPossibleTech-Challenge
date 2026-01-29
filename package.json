@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "@types/express": "^5.0.6"
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.10"
   },
   "dependencies": {
     "@types/mongoose": "^5.11.96",
@@ -9,6 +10,7 @@
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
     "typedi": "^0.10.0",
+    "uuid": "^13.0.0",
     "winston": "^3.19.0"
   }
 }

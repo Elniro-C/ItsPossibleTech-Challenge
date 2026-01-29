@@ -40,7 +40,10 @@ export default async ({ expressApp }: { expressApp: express.Application }) => {
   await dependencyInjectorLoader({
     mongoConnection,
     schemas: [
-      taskschema
+      {
+        name: 'taskSchema',
+        schema: taskschema
+      }
     ],
     controllers: [
       taskController

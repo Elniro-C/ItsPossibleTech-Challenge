@@ -16,9 +16,8 @@ export default ({ mongoConnection, schemas, controllers, repos, services}: {
      * at the time of writing unit tests.
      */
     schemas.forEach(m => {
-      // Notice the require syntax and the '.default'
-      let schema = require(m.schema).default;
-      Container.set(m.name, schema);
+      // Directly set the schema/model in the DI container
+      Container.set(m.name, m.schema);
     });
   
     repos.forEach(m => {
