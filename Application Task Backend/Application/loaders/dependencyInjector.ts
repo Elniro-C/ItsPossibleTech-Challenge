@@ -10,13 +10,7 @@ export default ({ mongoConnection, schemas, controllers, repos, services}: {
   try {
     Container.set('logger', LoggerInstance);
 
-    /**
-     * We are injecting the mongoose models into the DI container.
-     * This is controversial but it will provide a lot of flexibility 
-     * at the time of writing unit tests.
-     */
     schemas.forEach(m => {
-      // Directly set the schema/model in the DI container
       Container.set(m.name, m.schema);
     });
   
@@ -33,11 +27,8 @@ export default ({ mongoConnection, schemas, controllers, repos, services}: {
       });
 
     controllers.forEach(m => {
-      // load the @Service() class by its path
       let controllerClass = require(m.path).default;
-      // create/get the instance of the @Service() class
       let controllerInstance = Container.get(controllerClass);
-      // rename the instance inside the container
       Container.set(m.name, controllerInstance);
     });
   

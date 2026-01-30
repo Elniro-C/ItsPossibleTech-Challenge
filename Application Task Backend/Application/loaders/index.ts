@@ -8,11 +8,11 @@ import config from '../config';
 import taskschema from '../persistence/taskschema';
 
 export default async ({ expressApp }: { expressApp: express.Application }) => {
-  Logger.info('✌️ Connecting to Database...');
+  Logger.info(' Connecting to Database...');
   
   const mongoConnection = await mongooseLoader();
 
-  Logger.info('✌️ DB loaded and connected!');
+  Logger.info(' DB loaded and connected!');
 
   const userSchema = {
     name: 'taskSchema',
@@ -54,8 +54,8 @@ export default async ({ expressApp }: { expressApp: express.Application }) => {
       taskService
     ]
   });
-  Logger.info('✌️ Schemas, Controllers, Repositories, Services, etc. loaded');
+  Logger.info(' Schemas, Controllers, Repositories, Services, etc. loaded');
 
   await expressLoader({ app: expressApp });
-  Logger.info('✌️ Express loaded');
+  Logger.info(' Express loaded');
 }

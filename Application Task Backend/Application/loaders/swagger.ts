@@ -8,7 +8,7 @@ const options: swaggerJsdoc.Options = {
     info: {
       title: 'Swagger',
       version: '1.0.0',
-      description: 'Operations and Execution Management API documentation',
+      description: 'Task API ',
       contact: {
         name: 'API Support',
         email: 'support@example.com',

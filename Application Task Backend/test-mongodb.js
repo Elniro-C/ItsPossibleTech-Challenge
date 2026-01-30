@@ -13,7 +13,6 @@ const mongoose = require('mongoose');
       const config = mod.default || mod;
       MONGODB_URI = config.databaseURL;
     } catch (importErr) {
-      // Fallback: read config.js as text and extract databaseURL value
       const fs = require('fs');
       const cfgText = fs.readFileSync('./config.js', 'utf8');
       const m = cfgText.match(/databaseURL\s*[:=]\s*["'`]([^"'`]+)["'`]/);
@@ -24,29 +23,29 @@ const mongoose = require('mongoose');
       }
     }
 
-    console.log('🔍 Testing MongoDB connection...');
-    console.log('📍 Connection string:', MONGODB_URI);
+    console.log(' Testing MongoDB connection...');
+    console.log(' Connection string:', MONGODB_URI);
     console.log('');
 
     async function testConnection() {
       try {
-        console.log('⏳ Connecting to MongoDB...');
+        console.log(' Connecting to MongoDB...');
         
         const connection = await mongoose.connect(MONGODB_URI, {
           serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
         });
 
-        console.log('✅ Successfully connected to MongoDB!');
-        console.log('📊 Database name:', connection.connection.db.databaseName);
-        console.log('🌐 Host:', connection.connection.host);
-        console.log('🔢 Port:', connection.connection.port);
+        console.log(' Sccessfully connected to MongoDB!');
+        console.log(' Database name:', connection.connection.db.databaseName);
+        console.log(' Host:', connection.connection.host);
+        console.log(' Port:', connection.connection.port);
         console.log('');
 
         // Test database operations
         console.log('⏳ Testing database operations...');
         try {
           const collections = await connection.connection.db.listCollections().toArray();
-          console.log(`📚 Found ${collections.length} collection(s):`);
+          console.log(`Found ${collections.length} collection(s):`);
           collections.forEach(col => console.log(`   - ${col.name}`));
           console.log('');
         } catch (authError) {
@@ -70,7 +69,6 @@ const mongoose = require('mongoose');
         }
         console.log('');
 
-        // Insert sample data
         console.log('⏳ Inserting sample data...');
         const sampleUsers = [
           {
@@ -98,9 +96,9 @@ const mongoose = require('mongoose');
         console.log('');
 
         // Get all data
-        console.log('⏳ Retrieving all documents from "testusers"...');
+        console.log(' Retrieving all documents from "testusers"...');
         const allUsers = await testUsersCollection.find({}).toArray();
-        console.log(`✅ Found ${allUsers.length} document(s):`);
+        console.log(` Found ${allUsers.length} document(s):`);
         console.log('');
         allUsers.forEach((user, index) => {
           console.log(`  [${index + 1}] ${user.name}`);
@@ -110,11 +108,11 @@ const mongoose = require('mongoose');
           console.log('');
         });
 
-        console.log('✅ All database tests completed successfully!');
+        console.log(' All database tests completed successfully!');
         
         // Close the connection
         await mongoose.connection.close();
-        console.log('👋 Connection closed.');
+        console.log(' Connection closed.');
         process.exit(0);
 
       } catch (error) {
@@ -125,7 +123,7 @@ const mongoose = require('mongoose');
         
         if (error.name === 'MongooseServerSelectionError') {
           console.error('');
-          console.error('💡 Possible solutions:');
+          console.error(' Possible solutions:');
           console.error('   1. Check if MongoDB server is running');
           console.error('   2. Verify the connection string in .env file');
           console.error('   3. Check firewall/network settings');

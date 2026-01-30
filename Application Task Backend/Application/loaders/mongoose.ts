@@ -3,7 +3,6 @@ import { Db } from 'mongodb';
 import config from '../config';
 import Logger from './logger';
 
-// Set strictQuery to false to prepare for Mongoose 7
 mongoose.set('strictQuery', false);
 
 export default async (): Promise<Db> => {
@@ -15,7 +14,7 @@ async function _connectToDbWithRetry(retries: number): Promise<Db> {
     return await _getDb();
   } catch (err) {
     if (retries <= 0) {
-      Logger.error('❌ Could not connect to MongoDB after multiple attempts.', err);
+      Logger.error(' Could not connect to MongoDB after multiple attempts.', err);
       throw err;
     }
     Logger.warn(`⚠️ MongoDB connection failed. Retrying... (${retries} retries left)`);
