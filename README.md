@@ -3,6 +3,8 @@ ITSPOSSIBLE TECH CHALLENGE
 Requisitos:
 Node.js (v18 ou superior), npm e MongoDB
 
+Primeiro, clonar o repositorio no VSCode de preferência, copiando o url localizado no botao verde "code".
+
 Para correr o backend, entra na pasta do backend com cd backend, instala as dependências  "npm install", seguido de "npm install winston celebrate typedi" .
 
 
