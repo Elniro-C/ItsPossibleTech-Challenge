@@ -42,7 +42,7 @@ const mongoose = require('mongoose');
         console.log('');
 
         // Test database operations
-        console.log('⏳ Testing database operations...');
+        console.log('S Testing database operations...');
         try {
           const collections = await connection.connection.db.listCollections().toArray();
           console.log(`Found ${collections.length} collection(s):`);
@@ -63,7 +63,7 @@ const mongoose = require('mongoose');
         // Drop collection if it exists to start fresh
         try {
           await testUsersCollection.drop();
-          console.log('🗑️  Dropped existing "testusers" collection');
+          console.log('  Dropped existing "testusers" collection');
         } catch (err) {
           // Collection doesn't exist yet, that's fine
         }
@@ -92,7 +92,7 @@ const mongoose = require('mongoose');
         ];
 
         const insertResult = await testUsersCollection.insertMany(sampleUsers);
-        console.log(`✅ Inserted ${insertResult.insertedCount} documents`);
+        console.log(` Inserted ${insertResult.insertedCount} documents`);
         console.log('');
 
         // Get all data
@@ -116,7 +116,7 @@ const mongoose = require('mongoose');
         process.exit(0);
 
       } catch (error) {
-        console.error('❌ MongoDB connection failed!');
+        console.error(' MongoDB connection failed!');
         console.error('');
         console.error('Error details:');
         console.error('  Message:', error.message);

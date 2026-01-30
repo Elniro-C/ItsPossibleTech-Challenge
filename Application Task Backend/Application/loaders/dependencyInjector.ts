@@ -34,7 +34,7 @@ export default ({ mongoConnection, schemas, controllers, repos, services}: {
   
     return;
   } catch (e) {
-    LoggerInstance.error('🔥 Error on dependency injector loader: %o', e);
+    LoggerInstance.error('Warning: Error on dependency injector loader: %o', e);
     throw e;
   }
 };
