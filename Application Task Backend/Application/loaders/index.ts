@@ -15,7 +15,6 @@ export default async ({ expressApp }: { expressApp: express.Application }) => {
   Logger.info('✌️ DB loaded and connected!');
 
   const userSchema = {
-    // compare with the approach followed in repos and services
     name: 'taskSchema',
     schema: taskschema,
   };
