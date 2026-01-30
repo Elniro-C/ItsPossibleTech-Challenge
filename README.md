@@ -1,15 +1,19 @@
 ITSPOSSIBLE TECH CHALLENGE
 
 Requisitos:
-Node.js (v18 ou superior), npm e MongoDB (local ou remoto).
+Node.js (v18 ou superior), npm e MongoDB
 
-Para correr o backend, entra na pasta do backend com cd backend, instala as dependências com npm install.
+Para correr o backend, entra na pasta do backend com cd backend, instala as dependências  "npm install", seguido de "npm install winston celebrate typedi" .
+
 
 
 Depois inicia o backend com npm run dev.
 O backend ficará disponível em http://localhost:5000 e a documentação Swagger em http://localhost:5000/swagger.
 
 Para correr o frontend, entra na pasta do frontend com cd frontend, instala as dependências com npm install.
+
+Depois na raiz do projecto frontend, cria um ficheiro .env.local e coloca este conteudo: NEXT_PUBLIC_API_URL=http://localhost:5000/api
+
 
 Depois inicia o frontend com npm run dev.
 
